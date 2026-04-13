@@ -1,0 +1,39 @@
+Nav:
+
+Move It
+Home
+About
+Services 
+Postcode
+Check
+
+Hero:
+
+Move With Joy
+Welcome to our website. Our mission is to deliver top-notch moving services across the US. As a new company, we're committed to making your move smooth, simple, 
+and even enjoyable.
+Get a Quote
+Contact US
+
+Features:
+
+Why Move With Us?
+
+Professional
+Skilled Team
+Our trained movers bring precision, care, and organization to every job. We treat your belongings with the respect they deserve — because 
+they represent your story, not just stuff.
+Get a quote
+
+Countrywide
+Nationwide Coverage
+Whether you're moving down the street or across the country, we've got you covered. From packing to unpacking, we handle it all — with straightforward, 
+transparent pricing and zero hidden costs.
+Get a quote
+
+Personal Touch
+A Personal Experience
+We believe moving should feel like a fresh start, not a headache. Our goal is to change how people experience relocation by making it more personal, 
+positive, and stress-free. Reach out today to get started.
+Get a quote
+
