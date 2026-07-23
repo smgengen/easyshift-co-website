@@ -1,0 +1,512 @@
+
+/* 
+----Design Token---- 
+the custom css properties are define clobally making them available to every
+element in the document
+*/
+:root {
+    --color-primary: #00a651;
+    --color-surface:  #040000a8;
+    --color-text: #f0f0f0;
+    --color-accent: #00c96b;
+    --font-main: 'Inter', sans-serif;
+    --color-nav-link: #100606;
+}
+
+/* 
+---- Reset ----- 
+it stops the brower from adding the
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(
+        135deg,
+        #6B0F1A 0%,    /* garnet */
+        #9B1A2A 25%,   /* deep ruby */
+        #3D0A2E 50%,   /* plum midpoint */
+        #1A2A6C 75%,   /* midnight blue */
+        #0D1B4B 100%   /* navy */
+    );
+    color: var(--color-text);
+    font-family: var(--font-main), sans-serif;
+}
+
+/* styling of the navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--color-surface);
+    border-bottom: 2px solid var(--color-primary);
+}
+/* styling for nav-log */
+.logo-image {
+    height: 50px;
+    width: 50px;
+}
+
+/* styling for the nav-pages */
+.nav-pages {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: 1px;
+}
+.nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+.nav-pages a {
+    text-decoration: none;
+    color: var(--color-text);
+}
+.nav-pages a:hover {
+    color: var(--color-accent);
+}
+
+/* styling the here section */
+.hero {
+    min-height: 95vh;
+    display: flex;
+    position: relative;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 80px; /* Extra space for the stats strip */  
+    overflow: hidden;
+}
+.hero-content {
+    position: relative;
+    z-index: 2;
+}   
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.2
+}
+.hero-content h1 span {
+    color: var(--color-primary);
+}
+.hero-content p {
+    text-transform: capitalize;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    color: #aaa;
+}
+.hero-buttons {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn {
+    padding: 0.75rem 2rem;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary)
+}
+
+.btn-primary:hover {
+    background-color: var(--color-accent);
+    color: #fff;
+}
+
+.btn-outline {
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+
+}
+
+.btn-outline:hover {
+    background-color: var(--color-primary);
+    color: #fff;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  display: flex;
+  justify-content: center;
+}
+.stats-card {
+  border: 3px solid var(--color-primary);
+  border-radius: 10px;
+  height: 300px; 
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: red;
+}
+.stats-strip {
+  position: relative;
+  z-index: 10;
+  margin-top: -180px;    /* Pull up into the hero */
+  margin-bottom: -80px; /* Push down into the announcement section */
+  overflow: visible;
+}
+.stats-card:hover {
+    background-color: var(--color-primary);
+    color: #fff;
+}
+/*-- Hero Sliders (Carousel) --*/
+.hero-slides {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation: slideAnimation 15s infinite;
+}
+.slide1 {
+    background-image: url('./assets/images/hero1.jpg');
+    animation-delay: 5s;
+}
+.slide2 {
+    background-image: url('./assets/images/hero2.jpg');
+    animation-delay: 10s;
+}
+.slide3 {
+    background-image: url('./assets/images/hero3.jpg');
+    animation-delay: 15s;
+}
+.slide4 {
+    background-image: url('./assets/images/hero4.jpg');
+    animation-delay: 20s;
+}
+@keyframes slideAnimation {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    25% { opacity: 1; }
+    35% { opacity: 0; }
+    100% { opacity: 0; }
+}
+/*-- Dark Overlay for better text visibility --*/
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+    z-index: 1;
+}
+
+/* styling the annopuncement section */
+.announcement-section {
+    padding: 4rem 2rem;
+    background-color: var(--color-surface);
+    border-bottom: 2px solid var(--color-primary);
+    margin-top: 60px;
+}
+
+.section-header .annouce {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--color-text);
+}
+
+.section-header .page {
+    color: #aaa;
+    margin-top: 0.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.announcement-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+.announcement-card {
+    background-color: var(--color-nav-link);
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: border-color 0.2s;
+}
+
+.announcement-card:hover {
+    border-color: var(--color-primary);
+}
+
+.announcement-card.urgent {
+    border-color: #e05555;
+}
+
+.announcement-card.urgent:hover {
+    border-color: #eb0909;
+}
+ .announcement-tag {
+    font-family: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-primary);
+ }
+ .announcement-card.urgent .announcement-tag {
+    color: #e05555;
+ }
+ .announcement-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text);
+ }
+
+ .announcement-card p {
+    font-size: 0.9rem;
+    color: #aaa;
+    line-height: 1.6;
+ }
+
+ .announcement-date {
+    font-size: 0.75rem;
+    color: #555;
+    margin: auto;
+ }
+
+ /* sytling the how it work section */
+ .how-section {
+    padding: 4rem 2rem;
+    background-color: var(--color-nav-link);
+    border-bottom: 2px solid var(--color-primary);
+ }
+
+ .how-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+ }
+
+ .how-card {
+    background-color: var(--color-surface);
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 5rem 1.5rem;
+    transition: border-color 0.2s;
+ }
+
+ .how-card:hover {
+    border-color: var(--color-primary);
+ }
+
+ .how-number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    opacity: 0.4;
+    line-height: 1;
+    margin-bottom: 1rem;
+ }
+
+ .how-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-align: justify;
+ }
+
+ .how-card p {
+    font-size: 0.9rem;
+    color: #aaa;
+    line-height: 1.6;
+    text-align: justify;
+ }
+
+ .how-cta {
+    text-align: center;
+    margin-top: 3rem;
+ }
+
+ .section-header .how-h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--color-text);
+}
+
+.section-header .how-page {
+    color: #aaa;
+    margin-top: 0.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* styling the sponsorship section */
+
+.sponsors-section {
+  padding: 4rem 2rem;
+  background-color: var(--color-surface);
+  border-bottom: 2px solid var(--color-primary);
+}
+
+ .section-header .sponsor-h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--color-text);
+}
+
+.section-header .sponsor-page {
+    color: #aaa;
+    margin-top: 0.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sponsors-stats {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto 3rem;
+  padding: 2rem;
+  background-color: var(--color-nav-link);
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+}
+
+.sponsor-stat {
+  text-align: center;
+}
+
+.sponsor-stat h3 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.sponsor-stat p {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-top: 0.25rem;
+}
+
+.sponsors-pitch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: var(--color-nav-link);
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+.sponsors-pitch-text h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.sponsor-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sponsor-list li {
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+.sponsors-pitch-cta {
+  text-align: center;
+  min-width: 180px;
+}
+
+.sponsors-pitch-cta p {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 2.5rem;
+}
+
+/* sytling the footer section */
+.footer {
+  background-color: var(--color-surface);
+  border-top: 2px solid var(--color-primary);
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.footer-logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1rem 0;
+}
+
+.footer-links a {
+  color: #aaa;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--color-primary);
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+  color: #555;
+  margin-top: 1rem;
+}
+
